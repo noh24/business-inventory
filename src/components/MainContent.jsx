@@ -1,10 +1,10 @@
 import React from "react";
-import GridTable from "./GridTable";
+import Carousel from "./Carousel";
 
 export default function MainContent() {
   return (
     <div>
-      <GridTable></GridTable>
+      <Carousel></Carousel>
     </div>
   );
 }
