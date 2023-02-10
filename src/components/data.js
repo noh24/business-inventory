@@ -16,7 +16,7 @@ const data = [
   },
   {
     name: "iPhone14 & Plus",
-    price: "8",
+    price: "80",
     photo: iphone14plus,
     quantity: 10,
     id: uuid(),
