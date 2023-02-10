@@ -30,8 +30,8 @@ export default class GridTable extends React.Component {
   render() {
     return (
       <div className="flex justify-center">
-        <div className="mt-8">
-          <div className="max-w-lg h-full flex overflow-hidden no-scrollbar items-center scroll-smooth py-2 ">
+        <div className="mt-32">
+          <div className="max-w-lg h-full flex overflow-scroll no-scrollbar items-center scroll-smooth py-2 rounded-lg shadow shadow-gray-400 px-4">
             <AiOutlineLeft
               onClick={this.prevSlide}
               className="absolue left-0 text-3xl inset-y-1/2 text-gray-400 cursor-pointer"
@@ -42,13 +42,13 @@ export default class GridTable extends React.Component {
                   key={entry.id}
                   className={
                     index === this.state.currentSlide
-                      ? "block w-full h-auto object-cover py-3 px-2 text-center outline "
+                      ? "block w-full h-auto object-cover py-3 px-2 text-center"
                       : "hidden"
                   }
                 >
-                  <p>{entry.name}</p>
-                  <img src={entry.photo} alt={entry.name}></img>
-                  <div className="flex justify-between">
+                  <p className="text-3xl pb-2 text-gray-600">{entry.name}</p>
+                  <img className="px-1 py-2" src={entry.photo} alt={entry.name}></img>
+                  <div className="flex justify-between text-gray-500 px-1 py-2">
                     <p>{"Quantity: " + entry.quantity}</p>
                     <p>{"$" + entry.price}</p>
                   </div>

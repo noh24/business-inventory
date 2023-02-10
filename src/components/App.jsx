@@ -9,18 +9,18 @@ import MainContent from "./MainContent";
 export default function App() {
   return (
     <div className="container mx-auto">
-      <Header className="flex justify-between items-center px-5">
+      <Header className="flex justify-between items-center px-5 mt-6">
         <Logo src={logo} alt="logo" width="70px" height="10px"></Logo>
-        <h1 className="text-3xl text-gray-500">Get Your Apple Products</h1>
+        <h1 className="text-3xl text-gray-500 z-[-1] text-center">Apple Inventory</h1>
         <NavBar>
-          <Button className="border px-3 py-2 rounded bg-blue-500 text-gray-100 hover:bg-blue-600">
+          <Button className="border px-2 py-1 rounded bg-blue-400 text-gray-200 hover:bg-blue-500">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-5 h-5"
             >
               <path
                 strokeLinecap="round"
@@ -29,14 +29,14 @@ export default function App() {
               />
             </svg>
           </Button>
-          <Button className="border px-3 py-2 rounded bg-blue-500 text-gray-100 hover:bg-blue-600">
+          <Button className="border px-2 py-1 rounded bg-blue-400 text-gray-200 hover:bg-blue-500">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-5 h-5"
             >
               <path
                 strokeLinecap="round"
