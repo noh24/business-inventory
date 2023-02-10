@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Header({ children }) {
+export default function Header({ children, className }) {
   return (
-    <div className="outline flex justify-between items-center px-5">
+    <div className={className}>
       {children}
     </div>
   )
