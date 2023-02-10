@@ -9,7 +9,6 @@ const data = [
   {
     name: "iPhone14 Pro & Pro Max",
     price: "80",
-    year: "2012",
     photo: iphone14pro,
     quantity: 10,
     id: uuid(),
