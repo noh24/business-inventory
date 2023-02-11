@@ -1,5 +1,5 @@
 import React from "react";
-import Product from "./utility-components/Product";
+import Product from "./utility-components/ModalProduct";
 
 export default function Table({ data, onDetailsDisplay }) {
   let productArray = [];

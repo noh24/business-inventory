@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import Swipe from "react-easy-swipe";
-import Product from "./utility-components/Product";
+import CarouselProduct from "./utility-components/CarouselProduct";
 
 export default function Carousel({ data, onDetailsDisplay }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -25,33 +25,7 @@ export default function Carousel({ data, onDetailsDisplay }) {
             className="absolue left-0 text-3xl inset-y-1/2 text-gray-400 cursor-pointer"
           ></AiOutlineLeft>
           <Swipe onSwipeLeft={prevSlide} onSwipeRight={nextSlide}>
-            {data.map((entry, index) => (
-              <Product key={entry.id}>
-                <div
-                  onClick={() => onDetailsDisplay(entry.id)}
-                  className={
-                    index === currentSlide
-                      ? "block w-full h-auto object-cover py-3 px-2 text-center"
-                      : "hidden"
-                  }
-                >
-                  <p className="text-3xl pb-2 text-gray-600">{entry.name}</p>
-                  <img
-                    className="px-1 py-2"
-                    src={entry.photo}
-                    alt={entry.name}
-                  ></img>
-                  <div className="flex justify-between text-gray-500 px-1 py-2">
-                    <p>
-                      {entry.quantity
-                        ? entry.quantity + " Remaining"
-                        : "Sold out"}
-                    </p>
-                    <p>{"$" + entry.price}</p>
-                  </div>
-                </div>
-              </Product>
-            ))}
+            <CarouselProduct data={data} currentSlide={currentSlide} whenDetailsClick={onDetailsDisplay}></CarouselProduct>
           </Swipe>
           <AiOutlineRight
             onClick={nextSlide}
