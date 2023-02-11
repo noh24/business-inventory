@@ -1,6 +1,11 @@
 import React from "react";
 
-export default function EditControlPanel() {
+export default function EditControlPanel({ whenEditClick, whenExitModal }) {
+
+  const combinedFunction = () => {
+    whenEditClick();
+    whenExitModal();
+  }
   return (
     <div className="space-x-1 text-center">
       <button className="border px-2 py-1 rounded bg-blue-500 text-gray-100 hover:bg-blue-600 focus:outline-none shadow">
@@ -15,7 +20,7 @@ export default function EditControlPanel() {
           <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15" />
         </svg>
       </button>
-      <button className="border px-2 py-1 rounded bg-blue-500 text-gray-100 hover:bg-blue-600 focus:outline-none shadow">
+      <button onClick={combinedFunction} className="border px-2 py-1 rounded bg-blue-500 text-gray-100 hover:bg-blue-600 focus:outline-none shadow">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

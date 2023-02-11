@@ -5,6 +5,7 @@ import { v4 as uuid } from "uuid";
 export default function NewProduct({ onAddNewProduct }) {
   const handleSubmission = (event) => {
     event.preventDefault();
+
     let name, price, quantity;
     name = event.target.name.value;
     price = event.target.price.value;
@@ -35,7 +36,7 @@ export default function NewProduct({ onAddNewProduct }) {
           className="px-5 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-full focus:border-transparent text-center "
         />
         <input
-          type="text"
+          type="number"
           name="price"
           placeholder="Price..."
           className="px-5 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-full focus:border-transparent text-center "

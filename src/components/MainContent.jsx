@@ -6,6 +6,7 @@ import MainContentControl from "./MainContentControl";
 import NewProduct from "./NewProduct";
 import data from './data';
 import Modal from "./Modal";
+import EditProduct from "./EditProduct";
 
 export default class MainContent extends React.Component {
 
@@ -16,6 +17,7 @@ export default class MainContent extends React.Component {
       displayForm: null,
       dataList: [...data],
       selectedProduct: null,
+      displayEdit: null,
     }
   }
 
@@ -38,7 +40,16 @@ export default class MainContent extends React.Component {
   }
 
   handleResetDetailsDisplay = () => {
-    this.setState({ selectedProduct: null, }); 
+    this.setState({ selectedProduct: null, displayEdit: false, }); 
+  }
+
+  handleEditDisplay = () => {
+    this.setState({ displayEdit: true, })
+  }
+  
+  handleEditProduct = (edittedProduct) => {
+    const newProductList = this.state.dataList.filter(entry => entry.id !== edittedProduct.id).concat(edittedProduct);
+    this.setState({ dataList: newProductList, displayEdit: false, selectedProduct: edittedProduct, recentlyEdit: edittedProduct, });
   }
   
   render() {
@@ -47,8 +58,9 @@ export default class MainContent extends React.Component {
         <Header className="mt-10">
           <MainContentControl displayList={this.state.displayList} onToggleDisplay={this.handleToggleDisplay} onFormDisplay={this.handleFormDisplay}></MainContentControl>
         </Header>
-        {this.state.displayForm ? <NewProduct onAddNewProduct={this.handleAddNewProduct}></NewProduct> : this.state.displayList ? <Table data={this.state.dataList} onDetailsDisplay={this.handleDetailsDisplay}></Table> : <Carousel onDetailsDisplay={this.handleDetailsDisplay} data={this.state.dataList} ></Carousel>}
-        {this.state.selectedProduct && <Modal data={this.state.dataList} onModalClose={this.handleResetDetailsDisplay} selectedProduct={this.state.selectedProduct}></Modal>}
+        {this.state.displayForm ? <NewProduct onAddNewProduct={this.handleAddNewProduct}></NewProduct> : this.state.displayList ? <Table data={this.state.dataList} onDetailsDisplay={this.handleDetailsDisplay}></Table> : <Carousel onDetailsDisplay={this.handleDetailsDisplay} data={this.state.dataList} selectedProduct={this.state.recentlyEdit} ></Carousel>}
+        {this.state.selectedProduct && !this.state.displayEdit && <Modal data={this.state.dataList} onModalClose={this.handleResetDetailsDisplay} selectedProduct={this.state.selectedProduct} onEditClick={this.handleEditDisplay} onUpdateSelectedProduct={this.handleDetailsDisplay}></Modal>}
+        {this.state.displayEdit && <EditProduct selectedProduct={this.state.selectedProduct} onModalClose={this.handleResetDetailsDisplay} onEditSubmit={this.handleEditProduct}></EditProduct>}
       </div>
     );
   }

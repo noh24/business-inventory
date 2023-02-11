@@ -3,8 +3,9 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import Swipe from "react-easy-swipe";
 import CarouselProduct from "./utility-components/CarouselProduct";
 
-export default function Carousel({ data, onDetailsDisplay }) {
-  const [currentSlide, setCurrentSlide] = useState(0);
+export default function Carousel({ data, onDetailsDisplay, selectedProduct }) {
+  const indexOf = selectedProduct ? data.indexOf(selectedProduct) : 0;
+  const [currentSlide, setCurrentSlide] = useState(indexOf);
 
   const prevSlide = () => {
     let newSlide = currentSlide === 0 ? data.length - 1 : currentSlide - 1;
