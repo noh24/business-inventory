@@ -1,12 +1,12 @@
 import React from "react";
 import Product from "./utility-components/Product";
 
-export default function Table({ data }) {
+export default function Table({ data, onDetailsDisplay }) {
   let productArray = [];
 
   productArray = data.map((entry) => (
     <Product key={entry.id}>
-      <tr className="odd:bg-blue-400 odd:text-gray-100">
+      <tr onClick={() => onDetailsDisplay(entry.id)} className="odd:bg-blue-400 odd:text-gray-100 cursor-pointer">
         <td className="px-1 py-2">{entry.name}</td>
         <td className="px-1 py-2">{"$" + entry.price}</td>
         <td className="px-1 py-2">{entry.quantity}</td>

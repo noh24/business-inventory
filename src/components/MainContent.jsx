@@ -47,7 +47,7 @@ export default class MainContent extends React.Component {
         <Header className="mt-10">
           <MainContentControl displayList={this.state.displayList} onToggleDisplay={this.handleToggleDisplay} onFormDisplay={this.handleFormDisplay}></MainContentControl>
         </Header>
-        {this.state.displayForm ? <NewProduct onAddNewProduct={this.handleAddNewProduct}></NewProduct> : this.state.displayList ? <Table data={this.state.dataList}></Table> : <Carousel onDetailsDisplay={this.handleDetailsDisplay} data={this.state.dataList} ></Carousel>}
+        {this.state.displayForm ? <NewProduct onAddNewProduct={this.handleAddNewProduct}></NewProduct> : this.state.displayList ? <Table data={this.state.dataList} onDetailsDisplay={this.handleDetailsDisplay}></Table> : <Carousel onDetailsDisplay={this.handleDetailsDisplay} data={this.state.dataList} ></Carousel>}
         {this.state.selectedProduct && <Modal data={this.state.dataList} onModalClose={this.handleResetDetailsDisplay} selectedProduct={this.state.selectedProduct}></Modal>}
       </div>
     );
