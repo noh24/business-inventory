@@ -32,7 +32,8 @@ export default function EditControlPanel({
         </svg>
       </button>
       <button
-        className="border px-2 py-1 rounded bg-blue-500 text-gray-100 hover:bg-blue-600 focus:outline-none shadow"
+      disable="true"
+        className="border px-2 py-1 rounded bg-blue-500 text-gray-100 hover:bg-blue-600 focus:outline-none shadow cursor-not-allowed"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
