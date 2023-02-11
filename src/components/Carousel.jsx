@@ -1,10 +1,9 @@
 import { React, useState } from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import Swipe from "react-easy-swipe";
-import data from "./data";
 import Product from "./utility-components/Product";
 
-export default function Carousel() {
+export default function Carousel({ data }) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const prevSlide = () => {
@@ -19,7 +18,7 @@ export default function Carousel() {
 
   return (
     <div className="flex justify-center">
-      <div className="mt-14">
+      <div className="mt-10">
         <div className="max-w-lg h-full flex overflow-scroll no-scrollbar items-center scroll-smooth py-2 rounded-lg shadow-md shadow-blue-200 px-4">
           <AiOutlineLeft
             onClick={prevSlide}
