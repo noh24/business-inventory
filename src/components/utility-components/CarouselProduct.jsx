@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 export default function CarouselProduct({ data, currentSlide, whenDetailsClick }) {
   return (
@@ -26,4 +27,10 @@ export default function CarouselProduct({ data, currentSlide, whenDetailsClick }
       ))}
     </>
   );
+}
+
+CarouselProduct.propTypes = {
+  data: PropTypes.array,
+  currentSlide: PropTypes.number,
+  whenDetailsClick: PropTypes.func,
 }

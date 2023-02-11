@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 export default function ModalProduct({ data, currentSlide }) {
   return (
@@ -25,4 +26,9 @@ export default function ModalProduct({ data, currentSlide }) {
       ))}
     </>
   );
+}
+
+ModalProduct.propTypes = {
+  data: PropTypes.array,
+  currentSlide: PropTypes.number,
 }

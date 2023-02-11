@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Header({ children, className }) {
   return (
@@ -6,4 +7,9 @@ export default function Header({ children, className }) {
       {children}
     </div>
   )
+}
+
+Header.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
 }

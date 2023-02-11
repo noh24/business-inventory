@@ -3,6 +3,7 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import Swipe from "react-easy-swipe";
 import EditControlPanel from "./EditControlPanel";
 import ModalProduct from "./utility-components/ModalProduct";
+import PropTypes from 'prop-types';
 
 export default function Modal({ data, onModalClose, selectedProduct, onEditClick, onUpdateSelectedProduct }) {
   const indexOf = data.indexOf(selectedProduct);
@@ -75,4 +76,12 @@ export default function Modal({ data, onModalClose, selectedProduct, onEditClick
       )}
     </>
   );
+}
+
+Modal.propTypes = {
+  data: PropTypes.array,
+  onModalClose: PropTypes.func,
+  selectedProduct: PropTypes.object,
+  onEditClick: PropTypes.func,
+  onUpdateSelectedProduct: PropTypes.func,
 }

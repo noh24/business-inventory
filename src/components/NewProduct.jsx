@@ -1,6 +1,7 @@
 import React from "react";
 import iphone from "./../assets/iphone14plus.jpg";
 import { v4 as uuid } from "uuid";
+import PropTypes from 'prop-types';
 
 export default function NewProduct({ onAddNewProduct }) {
   const handleSubmission = (event) => {
@@ -32,18 +33,21 @@ export default function NewProduct({ onAddNewProduct }) {
         <input
           type="text"
           name="name"
+          required
           placeholder="Name..."
           className="px-5 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-full focus:border-transparent text-center "
         />
         <input
           type="number"
           name="price"
+          required
           placeholder="Price..."
           className="px-5 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-full focus:border-transparent text-center "
         />
         <input
           type="number"
           name="quantity"
+          required
           placeholder="Quantity..."
           className="px-5 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-full focus:border-transparent text-center "
         />
@@ -66,4 +70,8 @@ export default function NewProduct({ onAddNewProduct }) {
       </form>
     </div>
   );
+}
+
+NewProduct.propTypes = {
+  onAddNewProduct: PropTypes.func,
 }

@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import PropTypes from 'prop-types';
 
 export default function EditProduct({ selectedProduct, onModalClose, onEditSubmit }) {
   const { name, price, quantity, photo, id } = selectedProduct;
@@ -47,15 +48,15 @@ export default function EditProduct({ selectedProduct, onModalClose, onEditSubmi
             <div className="mt-[47%] xl:mt-[38%]">
               <div className="max-w-lg h-full bg-white flex overflow-scroll no-scrollbar items-center scroll-smooth py-2 rounded-lg shadow-lg shadow-blue-200 px-4 justify-center">
                 <div className="block w-full h-auto object-cover py-3 px-2 ml-4 text-center ">
-                  <input type="text" name="name" placeholder={name + "..."} className="text-3xl pb-2 text-gray-600 px-5 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-full focus:border-transparent text-center "></input>
+                  <input  type="text" name="name" placeholder={name + "..."} required className="text-3xl pb-2 text-gray-600 px-5 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-full focus:border-transparent text-center "></input>
                   <img
                     className="px-1 py-2 mx-auto"
                     src={photo}
                     alt={name}
                   ></img>
                   <div className="flex justify-around text-gray-500 px-1 py-2">
-                    <input type="number" name="quantity" placeholder={quantity ? quantity + " Remaining..." : "Sold out"} className="px-1 py-1 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-full focus:border-transparent text-center "></input>
-                    <input type="number" name="price" placeholder={"$" + price} className="px-1 py-1 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-full focus:border-transparent text-center"></input>
+                    <input type="number" name="quantity" placeholder={quantity ? quantity + " Remaining..." : "Sold out"} required className="px-1 py-1 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-full focus:border-transparent text-center "></input>
+                    <input type="number" name="price" placeholder={"$" + price} required className="px-1 py-1 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-full focus:border-transparent text-center"></input>
                   </div>
                   <button className="border px-2 py-1 rounded bg-blue-500 text-gray-100 hover:bg-blue-600 focus:outline-none shadow">
                     <svg
@@ -87,4 +88,10 @@ export default function EditProduct({ selectedProduct, onModalClose, onEditSubmi
       )}
     </>
   );
+}
+
+EditProduct.propTypes = {
+  selectedProduct: PropTypes.object,
+  onModalClose: PropTypes.func,
+  onEditSubmit: PropTypes.func,
 }

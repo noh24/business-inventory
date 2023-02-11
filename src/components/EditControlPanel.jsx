@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'
 
 export default function EditControlPanel({ whenEditClick, whenExitModal }) {
 
@@ -6,6 +7,7 @@ export default function EditControlPanel({ whenEditClick, whenExitModal }) {
     whenEditClick();
     whenExitModal();
   }
+
   return (
     <div className="space-x-1 text-center">
       <button className="border px-2 py-1 rounded bg-blue-500 text-gray-100 hover:bg-blue-600 focus:outline-none shadow">
@@ -54,4 +56,8 @@ export default function EditControlPanel({ whenEditClick, whenExitModal }) {
       </button>
     </div>
   );
+}
+EditControlPanel.propTypes = {
+  whenEditClick: PropTypes.func,
+  whenExitModal: PropTypes.func,
 }

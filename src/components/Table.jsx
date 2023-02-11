@@ -1,5 +1,5 @@
 import React from "react";
-import Product from "./utility-components/ModalProduct";
+import PropTypes from 'prop-types';
 
 export default function Table({ data, onDetailsDisplay }) {
   return (
@@ -28,4 +28,9 @@ export default function Table({ data, onDetailsDisplay }) {
       </table>
     </div>
   );
+}
+
+Table.propTypes = {
+  data: PropTypes.array,
+  onDetailsDisplay: PropTypes.func,
 }
