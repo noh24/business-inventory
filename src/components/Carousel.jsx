@@ -4,8 +4,9 @@ import Swipe from "react-easy-swipe";
 import CarouselProduct from "./utility-components/CarouselProduct";
 import PropTypes from 'prop-types';
 
-export default function Carousel({ data, onDetailsDisplay, }) {
-  const [currentSlide, setCurrentSlide] = useState(0);
+export default function Carousel({ data, onDetailsDisplay, selectedProduct }) {
+  const indexOf = selectedProduct ? data.indexOf(selectedProduct) : 0;
+  const [currentSlide, setCurrentSlide] = useState(indexOf);
 
   const prevSlide = () => {
     let newSlide = currentSlide === 0 ? data.length - 1 : currentSlide - 1;
@@ -41,4 +42,5 @@ export default function Carousel({ data, onDetailsDisplay, }) {
 Carousel.propTypes = {
   data: PropTypes.array,
   onDetailsDisplay: PropTypes.func,
+  selectedProduct: (PropTypes.obj) || PropTypes.number,
 }

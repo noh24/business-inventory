@@ -52,6 +52,11 @@ export default class MainContent extends React.Component {
     this.setState({ dataList: newProductList, displayEdit: false, selectedProduct: edittedProduct,});
   }
   
+  // handleDeleteProduct = (id) => {
+  //   const newProductList = this.state.dataList.filter(entry => entry.id !== id);
+  //   this.setState(() => ({ dataList: newProductList, selectedProduct: null, }));
+  // }
+
   render() {
     return (
       <div>
@@ -59,7 +64,7 @@ export default class MainContent extends React.Component {
           <MainContentControl displayList={this.state.displayList} onToggleDisplay={this.handleToggleDisplay} onFormDisplay={this.handleFormDisplay}></MainContentControl>
         </Header>
         {this.state.displayForm ? <NewProduct onAddNewProduct={this.handleAddNewProduct}></NewProduct> : this.state.displayList ? <Table data={this.state.dataList} onDetailsDisplay={this.handleDetailsDisplay}></Table> : <Carousel onDetailsDisplay={this.handleDetailsDisplay} data={this.state.dataList}></Carousel>}
-        {this.state.selectedProduct && !this.state.displayEdit && <Modal data={this.state.dataList} onModalClose={this.handleResetDetailsDisplay} selectedProduct={this.state.selectedProduct} onEditClick={this.handleEditDisplay} onUpdateSelectedProduct={this.handleDetailsDisplay}></Modal>}
+        {this.state.selectedProduct && !this.state.displayEdit && <Modal data={this.state.dataList} onModalClose={this.handleResetDetailsDisplay} selectedProduct={this.state.selectedProduct} onEditClick={this.handleEditDisplay} onUpdateSelectedProduct={this.handleDetailsDisplay} ></Modal>}
         {this.state.displayEdit && <EditProduct selectedProduct={this.state.selectedProduct} onModalClose={this.handleResetDetailsDisplay} onEditSubmit={this.handleEditProduct}></EditProduct>}
       </div>
     );

@@ -66,7 +66,7 @@ export default function MainContentControl({ displayList, onToggleDisplay, onFor
 }
 
 MainContentControl.propTypes = {
-  displayList: PropTypes.array,
+  displayList: PropTypes.bool,
   onToggleDisplay: PropTypes.func,
   onFormDisplay: PropTypes.func,
 }

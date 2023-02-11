@@ -5,7 +5,7 @@ import EditControlPanel from "./EditControlPanel";
 import ModalProduct from "./utility-components/ModalProduct";
 import PropTypes from 'prop-types';
 
-export default function Modal({ data, onModalClose, selectedProduct, onEditClick, onUpdateSelectedProduct }) {
+export default function Modal({ data, onModalClose, selectedProduct, onEditClick, onUpdateSelectedProduct, }) {
   const indexOf = data.indexOf(selectedProduct);
   const [currentSlide, setCurrentSlide] = useState(indexOf);
   const [displayModal, setDisplayModal] = useState(true);
