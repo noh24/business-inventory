@@ -15,15 +15,17 @@ export default function Table({ data }) {
   ));
 
   return (
-    <table className="table-fixed w-full lg:w-1/2 mx-auto text-center text-md shadow-md text-gray-500 shadow-blue-200 mt-14 mb-10">
-      <thead className="text-sm uppercase bg-gray-50 rounded-full">
-        <tr>
-          <th className="px-1 py-2">Name</th>
-          <th>Price</th>
-          <th>Quantity</th>
-        </tr>
-      </thead>
-      <tbody >{productArray}</tbody>
-    </table>
+    <div className="px-2">
+      <table className="table-fixed w-full lg:w-1/2 mx-auto text-center text-md shadow-md text-gray-500 shadow-blue-200 mt-14 mb-10">
+        <thead className="text-sm uppercase bg-gray-50 rounded-full">
+          <tr>
+            <th className="px-3 py-2">Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>{productArray}</tbody>
+      </table>
+    </div>
   );
 }
