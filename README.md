@@ -29,7 +29,7 @@
 * Pull requests are welcome.
 
 ## Known Bugs
-* No known bugs.
+* Delete feature is currently not working.
 
 ## MIT License
 Copyright © 2023 Brian Noh  
