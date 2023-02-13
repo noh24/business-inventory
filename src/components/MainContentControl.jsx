@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 
 export default function MainContentControl({ displayForm, onFormDisplay }) {
   return (
-    <div className="flex justify-center items-center px-5 space-x-2">
+    <div className="flex justify-center items-center px-5 space-x-2 mt-12">
       <button
         onClick={onFormDisplay}
-        className="border px-2 py-1 rounded bg-blue-500 text-gray-100 hover:bg-blue-600 shadow"
+        className="border px-2 py-2 rounded bg-amber-400 text-gray-50 hover:text-white hover:bg-amber-500 shadow"
       >
         {displayForm ? "Show Inventory" : "Add Product"}
       </button>
@@ -15,5 +15,6 @@ export default function MainContentControl({ displayForm, onFormDisplay }) {
 }
 
 MainContentControl.propTypes = {
+  displayForm: PropTypes.bool,
   onFormDisplay: PropTypes.func,
 };

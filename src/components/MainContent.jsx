@@ -71,13 +71,11 @@ export default class MainContent extends React.Component {
 
   render() {
     return (
-      <>
-        <Header className="mt-10">
-          <MainContentControl
-            displayForm={this.state.displayForm}
-            onFormDisplay={this.handleFormDisplay}
-          ></MainContentControl>
-        </Header>
+      <div className="lg:w-1/2 w-full container">
+        <MainContentControl
+          displayForm={this.state.displayForm}
+          onFormDisplay={this.handleFormDisplay}
+        ></MainContentControl>
 
         {this.state.displayForm ? (
           <NewProduct onAddNewProduct={this.handleAddNewProduct}></NewProduct>
@@ -105,8 +103,7 @@ export default class MainContent extends React.Component {
             onEditSubmit={this.handleEditProduct}
           ></EditProduct>
         )}
-
-      </>
+      </div>
     );
   }
 }

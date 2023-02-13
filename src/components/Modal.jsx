@@ -48,9 +48,11 @@ export default function Modal({ data, onModalClose, selectedProduct, onEditClick
           ref={refObject}
           className="fixed z-10 top-0 left-0 w-full h-full overflow-auto bg-opacity-60 bg-black"
         >
-          <div className="sm:w-[75%] md:w-[65%] lg:w-[50%] xl:w-[38%] 2xl:w-[30%] mx-auto px-2">
-            <div className="mt-[47%] xl:mt-[38%]">
-              <div className="max-w-lg h-full bg-white flex overflow-scroll no-scrollbar items-center scroll-smooth py-2 rounded-lg shadow-lg shadow-blue-200 px-4 justify-center">
+          {/* <div className="sm:w-[75%] md:w-[65%] lg:w-[50%] xl:w-[38%] 2xl:w-[30%] mx-auto px-2"> */}
+          <div class="container mx-auto flex justify-center w-full flex-shrink-0 lg:w-1/3">
+            {/* <div className="mt-[47%] xl:mt-[38%]"> */}
+            <div className="mt-48">
+              <div className="max-w-lg h-full bg-white flex overflow-scroll no-scrollbar items-center scroll-smooth py-2 rounded-lg shadow-lg shadow-amber-200 px-4 justify-center">
                 <AiOutlineLeft
                   onClick={prevSlide}
                   className="absolue left-0 text-3xl inset-y-1/2 ml-5 text-gray-400 cursor-pointer"
@@ -65,7 +67,7 @@ export default function Modal({ data, onModalClose, selectedProduct, onEditClick
                 ></AiOutlineRight>
                 <div
                   onClick={closeModal}
-                  className="float-right font-semibold text-gray-500 text-4xl self-start cursor-pointer"
+                  className="float-right font-semibold text-gray-500 text-4xl self-start cursor-pointer hover:text-gray-300"
                 >
                   &times;
                 </div>

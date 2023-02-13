@@ -1,15 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-export default function Header({ children, className }) {
+import React from "react";
+import logo from './../assets/logo.png'
+export default function Header() {
   return (
-    <div className={className}>
-      {children}
+    <div className="flex justify-center items-center px-5 my-6">
+      <img src={logo} alt="logo" width="70px" height="10px"></img>
+      <h1 className="text-3xl text-gray-500 text-center">
+        Inventory System
+      </h1>
     </div>
-  )
-}
-
-Header.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
+  );
 }
