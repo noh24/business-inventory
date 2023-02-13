@@ -2,7 +2,7 @@ import { React, useRef, useState } from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import Swipe from "react-easy-swipe";
 import EditControlPanel from "./EditControlPanel";
-import ModalProduct from "./utility-components/ModalProduct";
+import ModalProduct from "./ModalProduct";
 import PropTypes from 'prop-types';
 
 export default function Modal({ data, onModalClose, selectedProduct, onEditClick, onUpdateSelectedProduct, }) {
