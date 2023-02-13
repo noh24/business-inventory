@@ -40,6 +40,7 @@ export default function NewProduct({ onAddNewProduct }) {
         <input
           type="number"
           name="price"
+          min="0"
           required
           placeholder="Price..."
           className="px-5 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded-full focus:border-transparent text-center "
@@ -47,6 +48,7 @@ export default function NewProduct({ onAddNewProduct }) {
         <input
           type="number"
           name="quantity"
+          min="0"
           required
           placeholder="Quantity..."
           className="px-5 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded-full focus:border-transparent text-center "

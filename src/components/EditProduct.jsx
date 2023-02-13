@@ -69,6 +69,7 @@ export default function EditProduct({
                   <div className="flex justify-around text-gray-500 px-1 py-2">
                     <input
                       type="number"
+                      min="0"
                       name="quantity"
                       placeholder={
                         quantity ? quantity + " Remaining..." : "Sold out"
@@ -78,6 +79,7 @@ export default function EditProduct({
                     ></input>
                     <input
                       type="number"
+                      min="0"
                       name="price"
                       placeholder={"$" + price}
                       required
