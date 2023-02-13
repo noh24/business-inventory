@@ -1,4 +1,4 @@
-# Apple Inventory Management System
+# Inventory Management System
 
 ### Created By [Brian Noh](https://github.com/noh24/)
 
