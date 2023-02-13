@@ -1,7 +1,11 @@
 import React, { useRef, useState } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-export default function EditProduct({ selectedProduct, onModalClose, onEditSubmit }) {
+export default function EditProduct({
+  selectedProduct,
+  onModalClose,
+  onEditSubmit,
+}) {
   const { name, price, quantity, photo, id } = selectedProduct;
   const [displayModal, setDisplayModal] = useState(true);
 
@@ -33,7 +37,7 @@ export default function EditProduct({ selectedProduct, onModalClose, onEditSubmi
       id,
     };
     onEditSubmit(edittedProduct);
-  }
+  };
 
   return (
     <>
@@ -44,19 +48,41 @@ export default function EditProduct({ selectedProduct, onModalClose, onEditSubmi
           ref={refObject}
           className="fixed z-10 top-0 left-0 w-full h-full overflow-auto bg-opacity-60 bg-black"
         >
-          <div className="sm:w-[75%] md:w-[65%] lg:w-[50%] xl:w-[38%] 2xl:w-[30%] mx-auto px-2">
-            <div className="mt-[47%] xl:mt-[38%]">
+          {/* <div className="sm:w-[75%] md:w-[65%] lg:w-[50%] xl:w-[38%] 2xl:w-[30%] mx-auto px-2"> */}
+          <div class="container mx-auto flex justify-center w-full flex-shrink-0 lg:w-1/3">
+            {/* <div className="mt-[47%] xl:mt-[38%]"> */}
+            <div className="mt-48">
               <div className="max-w-lg h-full bg-white flex overflow-scroll no-scrollbar items-center scroll-smooth py-2 rounded-lg shadow-lg shadow-amber-200 px-4 justify-center">
                 <div className="block w-full h-auto object-cover py-3 px-2 ml-4 text-center ">
-                  <input  type="text" name="name" placeholder={name + "..."} required className="text-3xl pb-2 text-gray-600 px-5 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded-full focus:border-transparent text-center "></input>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder={name + "..."}
+                    required
+                    className="text-3xl pb-2 text-gray-600 px-5 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded-full focus:border-transparent text-center "
+                  ></input>
                   <img
                     className="px-1 py-2 mx-auto"
                     src={photo}
                     alt={name}
                   ></img>
                   <div className="flex justify-around text-gray-500 px-1 py-2">
-                    <input type="number" name="quantity" placeholder={quantity ? quantity + " Remaining..." : "Sold out"} required className="px-1 py-1 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded-full focus:border-transparent text-center "></input>
-                    <input type="number" name="price" placeholder={"$" + price} required className="px-1 py-1 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded-full focus:border-transparent text-center"></input>
+                    <input
+                      type="number"
+                      name="quantity"
+                      placeholder={
+                        quantity ? quantity + " Remaining..." : "Sold out"
+                      }
+                      required
+                      className="px-1 py-1 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded-full focus:border-transparent text-center "
+                    ></input>
+                    <input
+                      type="number"
+                      name="price"
+                      placeholder={"$" + price}
+                      required
+                      className="px-1 py-1 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded-full focus:border-transparent text-center"
+                    ></input>
                   </div>
                   <button className="border px-2 py-2 rounded bg-amber-400 text-gray-50 hover:text-white hover:bg-amber-500 shadow">
                     Save Changes
@@ -81,4 +107,4 @@ EditProduct.propTypes = {
   selectedProduct: PropTypes.object,
   onModalClose: PropTypes.func,
   onEditSubmit: PropTypes.func,
-}
+};
