@@ -25,7 +25,7 @@ export default function EditProduct({
     event.preventDefault();
 
     let name, price, quantity;
-    name = event.target.name.value;
+    name = event.target.name.value || selectedProduct.name;
     price = event.target.price.value;
     quantity = event.target.quantity.value;
 
@@ -57,8 +57,9 @@ export default function EditProduct({
                   <input
                     type="text"
                     name="name"
+                    // value={name}
                     placeholder={name + "..."}
-                    required
+                    // required
                     className="text-3xl pb-2 text-gray-600 px-5 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded-full focus:border-transparent text-center "
                   ></input>
                   <img
@@ -69,6 +70,7 @@ export default function EditProduct({
                   <div className="flex justify-around text-gray-500 px-1 py-2">
                     <input
                       type="number"
+                      min="0"
                       name="quantity"
                       placeholder={
                         quantity ? quantity + " Remaining..." : "Sold out"
@@ -78,6 +80,7 @@ export default function EditProduct({
                     ></input>
                     <input
                       type="number"
+                      min="0"
                       name="price"
                       placeholder={"$" + price}
                       required
