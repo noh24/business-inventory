@@ -17,7 +17,7 @@ export default function ModalProduct({ data, currentSlide }) {
             <img className="px-1 py-2" src={entry.photo} alt={entry.name}></img>
             <div className="flex justify-around text-gray-500 px-1 py-2">
               <p>
-                {entry.quantity ? entry.quantity + " Remaining" : "Sold out"}
+                {entry.quantity ? entry.quantity + " Remaining" : "Out of stock"}
               </p>
               <p>{"$" + entry.price}</p>
             </div>

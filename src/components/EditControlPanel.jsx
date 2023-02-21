@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function EditControlPanel({ whenEditClick, whenExitModal }) {
+export default function EditControlPanel({ whenEditClick, whenExitModal, whenDeleteClick, selectedProduct }) {
   const combinedFunction = () => {
     whenEditClick();
     whenExitModal();
@@ -16,8 +16,8 @@ export default function EditControlPanel({ whenEditClick, whenExitModal }) {
         Edit
       </button>
       <button
-        disable="true"
-        className="border px-2 py-2 rounded bg-amber-400 text-gray-50 hover:text-white hover:bg-amber-500 shadow cursor-not-allowed"
+        onClick={() => whenDeleteClick(selectedProduct.id)}
+        className="border px-2 py-2 rounded bg-amber-400 text-gray-50 hover:text-white hover:bg-amber-500 shadow"
       >
         Delete
       </button>
@@ -27,4 +27,6 @@ export default function EditControlPanel({ whenEditClick, whenExitModal }) {
 EditControlPanel.propTypes = {
   whenEditClick: PropTypes.func,
   whenExitModal: PropTypes.func,
+  whenDeleteClick: PropTypes.func,
+  selectedProduct: PropTypes.object,
 };

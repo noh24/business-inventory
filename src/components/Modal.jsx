@@ -5,7 +5,7 @@ import EditControlPanel from "./EditControlPanel";
 import ModalProduct from "./ModalProduct";
 import PropTypes from 'prop-types';
 
-export default function Modal({ data, onModalClose, selectedProduct, onEditClick, onUpdateSelectedProduct, }) {
+export default function Modal({ data, onModalClose, selectedProduct, onEditClick, onUpdateSelectedProduct, onDeleteProduct }) {
   const indexOf = data.indexOf(selectedProduct);
   const [currentSlide, setCurrentSlide] = useState(indexOf);
   const [displayModal, setDisplayModal] = useState(true);
@@ -49,7 +49,7 @@ export default function Modal({ data, onModalClose, selectedProduct, onEditClick
           className="fixed z-10 top-0 left-0 w-full h-full overflow-auto bg-opacity-60 bg-black"
         >
           {/* <div className="sm:w-[75%] md:w-[65%] lg:w-[50%] xl:w-[38%] 2xl:w-[30%] mx-auto px-2"> */}
-          <div class="container mx-auto flex justify-center w-full flex-shrink-0 lg:w-1/3">
+          <div className="container mx-auto flex justify-center w-full flex-shrink-0 lg:w-1/3">
             {/* <div className="mt-[47%] xl:mt-[38%]"> */}
             <div className="mt-48">
               <div className="max-w-lg h-full bg-white flex overflow-scroll no-scrollbar items-center scroll-smooth py-2 rounded-lg shadow-lg shadow-amber-200 px-4 justify-center">
@@ -59,7 +59,7 @@ export default function Modal({ data, onModalClose, selectedProduct, onEditClick
                 ></AiOutlineLeft>
                 <Swipe onSwipeLeft={prevSlide} onSwipeRight={nextSlide}>
                   <ModalProduct data={data} currentSlide={currentSlide}></ModalProduct>
-                  <EditControlPanel whenExitModal={setDisplayModalFalse} whenEditClick={onEditClick}></EditControlPanel>
+                  <EditControlPanel whenExitModal={setDisplayModalFalse} whenEditClick={onEditClick} whenDeleteClick={onDeleteProduct} selectedProduct={selectedProduct}></EditControlPanel>
                 </Swipe>
                 <AiOutlineRight
                   onClick={nextSlide}

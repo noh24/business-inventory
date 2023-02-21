@@ -63,10 +63,26 @@ export default class MainContent extends React.Component {
     });
   };
 
-  // handleDeleteProduct = (id) => {
-  //   const newProductList = this.state.dataList.filter(entry => entry.id !== id);
-  //   this.setState(() => ({ dataList: newProductList, selectedProduct: null, }));
-  // }
+  handleDeleteProduct = (id) => {
+    const newProductList = this.state.dataList.filter(entry => entry.id !== id);
+    this.setState(() => ({ dataList: newProductList, selectedProduct: null, }));
+  }
+
+  handleIncrementQuantity = (id) => {
+    const productIndex = this.state.dataList.findIndex(product => product.id === id);
+    const updatedList = [...this.state.dataList];
+    updatedList[productIndex].quantity += 1;
+    this.setState({
+      dataList: updatedList,
+    });
+  };
+
+  handleDecrementQuantity = (id) => {
+    const newList = [...this.state.dataList];
+    const productIndex = newList.findIndex(e => e.id === id);
+    newList[productIndex].quantity ? newList[productIndex].quantity -= 1 : newList[productIndex].quantity = 0;
+    this.setState({ dataList: newList });
+  }
 
   render() {
     return (
@@ -82,6 +98,8 @@ export default class MainContent extends React.Component {
           <Table
             data={this.state.dataList}
             onDetailsDisplay={this.handleDetailsDisplay}
+            onIncrementQuantity={this.handleIncrementQuantity}
+            onDecrementQuantity={this.handleDecrementQuantity}
           ></Table>
         )}
 
@@ -92,6 +110,7 @@ export default class MainContent extends React.Component {
             selectedProduct={this.state.selectedProduct}
             onEditClick={this.handleEditDisplay}
             onUpdateSelectedProduct={this.handleDetailsDisplay}
+            onDeleteProduct={this.handleDeleteProduct}
           ></Modal>
         )}
 
